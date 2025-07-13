@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+	<meta charset="UTF-8">
+    <script src="https://www.govmap.gov.il/govmap/api/govmap.api.js" defer onload="initGovMap()"></script>
+    <script type="text/javascript">
+        function initGovMap() {
+            govmap.createMap('map', {
+                token: '76801309-abee-4e16-ba5b-26158751128c',
+                layers: ["GASSTATIONS","PARCEL_HOKS", "KSHTANN_ASSETS", "bus_stops", "PARCEL_ALL"],
+                showXY: true,
+                identifyOnClick: true,
+                isEmbeddedToggle: false,
+                background: 3,
+                layersMode: 1,
+                zoomButtons:true
+            });
+        }
+        function showExample() {
+            var params = {
+                layerName: 'GASSTATIONS',
+                fieldName: 'NAME',
+                fieldValues: ["הסיירים", "מסובים"],
+                highlight: false
+            };
+            govmap.searchInLayer(params);
+        }
+   </script>
+ </head>
+ <body>
+    <div id="map" style="width:600px;height:600px;"></div>
+    <button onClick="showExample()">Show Example</button>
+ </body>
+</html>
